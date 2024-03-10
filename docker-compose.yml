@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+
+  gateway.api:
+    image: ${DOCKER_REGISTRY-}gatewayapi
+    build:
+      context: .
+      dockerfile: Gateway.API/Dockerfile
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+  
+  shop.api:
+    image: ${DOCKER_REGISTRY-}shopapi
+    build:
+      context: .
+      dockerfile: Shop.API/Dockerfile
+    ports:
+      - "6000:6000"
+      - "6001:6001"
+
+  product.api:
+    image: ${DOCKER_REGISTRY-}productapi
+    build:
+      context: .
+      dockerfile: Product.API/Dockerfile
+    ports:
+      - "6100:6100"
+      - "6101:6101"
+
+
+
